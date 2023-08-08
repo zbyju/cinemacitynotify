@@ -1,9 +1,15 @@
 import requests
 import schedule
 import time
+import requests
 from plyer import notification
 
 prev_data = None
+
+def send_discord_notification():
+    webhook_url = 'https://discord.com/api/webhooks/1138430121418698763/F0qo0i3Zm0TMiOY3KiP9T50JbFbwgM0cYWHDXrCcPmDZxCqAQwAm06pPG8fLlj3fhuCg'
+    role_id = '320940482731704321'
+    requests.post(webhook_url, json={'content': 'Oppenheimer is ready <@&' + role_id + '>'})
 
 def fetchLink(url):
     # Send the GET request
@@ -27,6 +33,7 @@ def job():
     elif prev_data != data:
         print("NEW DATA AVAILABLE!!!")
         send_notification()
+        send_discord_notification()
     else:
         print("Nothing new")
     prev_data = data
