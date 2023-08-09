@@ -32,6 +32,7 @@ def job():
         print("First call successful")
     elif prev_data != data:
         print("NEW DATA AVAILABLE!!!")
+        print("Now that's what I call bombastic news")
         send_notification()
         send_discord_notification()
     else:
